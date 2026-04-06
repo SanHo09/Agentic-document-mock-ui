@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Project Doc Generator</title>
+    <link rel="stylesheet" href="sample.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📚 GitHub Project Doc Generator</h1>
+                <p>Automatically generate project documentation from a GitHub link</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="input-wrapper">
+                    <label for="github-link" class="label">GitHub Repository Link:</label>
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="github-link" 
+                            class="input-field" 
+                            placeholder="https://github.com/username/repo-name"
+                            value="https://github.com/facebook/react"
+                        >
+                        <button class="btn btn-primary" id="generate-btn">
+                            <span class="btn-icon">⚡</span>
+                            Generate Documentation
+                        </button>
+                    </div>
+                    <small class="hint">Example: https://github.com/facebook/react</small>
+                </div>
+            </section>
+
+            <!-- Loading State -->
+            <div class="loading" id="loading-state" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing repository...</p>
+            </div>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results-section" style="display: none;">
+                <div class="results-header">
+                    <div class="repo-info">
+                        <h2 id="repo-name"></h2>
+                        <p id="repo-description"></p>
+                        <div class="repo-meta">
+                            <span class="meta-item">⭐ <span id="stars">0</span> Stars</span>
+                            <span class="meta-item">🍴 <span id="forks">0</span> Forks</span>
+                            <span class="meta-item">📝 <span id="functions-count">0</span> Functions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Functions Documentation -->
+                <div class="functions-container">
+                    <h3 class="section-title">Functions Documentation</h3>
+                    <div class="functions-list" id="functions-list">
+                        <!-- Functions will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Function Graph -->
+                <div class="function-graph-container">
+                    <h3 class="section-title">Function Graph</h3>
+                    <div class="function-graph-canvas" id="function-graph-canvas">
+                        <!-- Function graph will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Feature Flow Documentation -->
+                <div class="feature-flow-container">
+                    <h3 class="section-title">Feature Flow Documentation</h3>
+                    <div class="feature-flow-list" id="feature-flow-list">
+                        <!-- Feature flows will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Copy All Button -->
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="copy-all-btn">
+                        <span class="btn-icon">📋</span>
+                        Copy All Documentation
+                    </button>
+                    <button class="btn btn-secondary" id="export-btn">
+                        <span class="btn-icon">📥</span>
+                        Export as Markdown
+                    </button>
+                </div>
+            </section>
+
+            <!-- Error State -->
+            <div class="error-message" id="error-state" style="display: none;">
+                <span class="error-icon">❌</span>
+                <p id="error-text"></p>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state">
+                <div class="empty-icon">📦</div>
+                <h3>Start Generating Documentation</h3>
+                <p>Enter a GitHub repository link above to begin</p>
+            </div>
+        </main>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast-notification"></div>
+    </div>
+
+    <script src="sample.js"></script>
+</body>
+</html>
